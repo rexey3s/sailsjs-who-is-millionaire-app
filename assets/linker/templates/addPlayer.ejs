@@ -1,0 +1,16 @@
+   <li data-model="player" data-id="<%= player.id%>" class="player">
+
+                <div class="ava"></div>
+                <div class="info" data-model="player" data-id="<%= player.id%>">
+                  <div class="name"><%= player.name %></div>
+                  <div class="position">Người tham gia</div>
+
+                 <% if(player.isReady)  { %>
+                  <div class="status green">Sẵn sàng</div>
+                  <% } else { %>
+                  <div class="status red">Chưa sẵn sàng</div>
+
+                  <% }%>
+                </div>
+                <!-- <div class="remove-player"></div> -->
+</li>

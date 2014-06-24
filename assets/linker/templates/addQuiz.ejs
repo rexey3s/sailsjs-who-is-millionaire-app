@@ -1,0 +1,18 @@
+  <div id="qa-wrapper" class="qa-parts choosing-player-qa" style="margin-top:10px">
+      <div class="q-line"></div>
+      <div class="question-wrapper">
+        <div class="question-holder" data-value="<%= quizOrder %>">
+            Câu <%= parseInt(quizOrder) + 1 %>: <%- quiz.question %>
+        </div>
+      </div>
+
+        <div class="q-line l1"></div>
+        <div class="q-line l2"></div>
+      <div class="answer-wrapper">
+        <div class="answer-holder left ans-1 series-ans"  data-value="<%= quiz.answer[0]%>" data-ansNum="1"><span>A. <%- quiz.answer[0] %></span><div class="order"></div></div>
+        <div class="answer-holder right ans-2 series-ans"  data-value="<%= quiz.answer[1]%>" data-ansNum="2"><span>B. <%-quiz.answer[1] %></span><div class="order"></div></div>
+        <div class="answer-holder left ans-3 series-ans"  data-value="<%= quiz.answer[2]%>" data-ansNum="3"><span>C. <%-quiz.answer[2] %> </span><div class="order"></div></div>
+        <div class="answer-holder right ans-4 series-ans"  data-value="<%= quiz.answer[3]%>" data-ansNum="4"><span>D. <%-quiz.answer[3] %></span><div class="order"></div></div>
+      </div>
+      <div class="clearfix"></div>
+</div>

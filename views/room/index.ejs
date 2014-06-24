@@ -1,0 +1,59 @@
+<div id="header">
+
+      <div id="logo">
+      </div>
+      <div id="supports">
+        <img id="logout-btn" src="/images/icon-logout.png" style="margin-left:13px" height="52" width="52" />
+
+      </div>
+
+</div>
+<div class="q-wrapper">
+      <div class="function-btns-wrapper" >
+
+        <a href="/room/new"><div class="function-btn">Tạo phòng mới</div></a>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div id="player-list-wrapper">
+    <% if(flash && flash.err) { %>
+        <% if(typeof flash.err == 'object') {%>
+        <% Object.keys(flash.err).forEach(function(error) { %>
+
+        <div id="player-list-wrapper"><div class="alert alert-danger"><%- JSON.stringify(flash.err[error].message) %></div></div>
+        <% }) %>
+        <% } %>
+        <%  } %>
+      <h2 class="help" style="margin-top:10px;">Danh sách phòng chơi</h2>
+
+
+        <div id="player-list-holder">
+          <div class="player-main-list">
+          <ul class="player-list room">
+          <% _.each(rooms,function(room) { %>
+             <li data-model="room" data-id="<%= room.id%>" class="player">
+            <div class="room"></div>
+
+                <div class="info" data-model="room" data-id="<%= room.id%>">
+                <% if(room.managed_by == admin.id)  { %>
+                <div class="name"><a href="/room/show"><%- room.name %></a></div>
+                <div class="position">Bạn là MC phòng này</div>
+                <% } else { %>
+                <div class="name"><%- room.name %></div>
+                <div class="position">Đã có MC </div>
+                <% }%>
+                <% if(room.players.length > 0) { %>
+                <div class="status green"> Đã có <%- room.players.length %> người tham gia</div>
+                <% } else { %>
+                <div class="status red"> Chưa có người tham gia</div>
+                <% } %>
+                </div>
+             </li>
+          <% }) %>
+          </ul>
+            <div class="clearfix"></div>
+
+          </div>
+      </div>
+    </div>
+

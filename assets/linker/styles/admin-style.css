@@ -1,0 +1,345 @@
+
+			*{
+				margin:0px;
+				padding:0px;
+				box-sizing:border-box;
+				-webkit-box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				-o-box-sizing:border-box;
+			}
+			ul {
+				list-style:none;
+				font-family:arial;
+				line-height:37px;
+
+			}
+			body {
+				background-image:url(/images/bgs/bg1.png);
+				background-repeat:repeat-x;
+				background-size:cover;
+
+			}
+
+			/*
+			*	header part
+			*/
+			#header {
+				max-width:800px;
+				height:230px;
+				position:relative;
+				margin:auto;
+			}
+				#logo {
+					width: 200px;
+					height:200px;
+					background-image:url(/images/logo.png);
+					background-size:cover;
+					position:absolute;
+					top:30px;
+					left:300px;
+				}
+				#header #supports {
+					width:200px;
+					float:left;
+					margin-top:98px;
+					margin-left:50px;
+					cursor:pointer;
+				}
+				#header #supports img {
+					opacity:0.8;
+				}
+				#header #supports img:hover {
+					opacity:1;
+				}
+				#header #supports img.disable {
+					opacity:0.2;
+				}
+
+			/*
+			*	function buttons
+			*/
+			.function-btns-wrapper {
+				max-width:800px;
+				margin:auto;
+			}
+			.function-btn
+			{
+				width:auto;
+				border:3px solid #fff;
+				box-shadow:0px -1px 2px #333;
+				border-radius:10px;
+				background:#222222;
+				min-height:40px;
+				margin-top:15px;
+				padding:8px;
+				line-height:30px;
+				font-size:17px;
+				float:left;
+				cursor:pointer;
+				color:#fff;
+				margin-left:10px;
+			}
+				.function-btn.disabled {
+					color:#aaa;
+				}
+				.function-btn:not(.disabled):hover {
+					color:#333;
+					background-color:#39B9FF;
+				}
+				.function-btn:not(.disabled):active {
+					color:#333;
+					background-color:#3DDFFF;
+				}
+			/*
+			*	player list wrapper
+			*/
+			#player-list-wrapper {
+				max-width:800px;
+				margin:auto;
+				padding:30px 0px;
+			}
+			#main-player-wrapper {
+				max-width:800px;
+				margin:auto;
+				padding:30px 0px;
+			}
+			#qa-wrapper-admin {
+				max-width:800px;
+				margin:auto;
+				padding:30px 0px;
+			}
+			#player-list-holder {
+				width:100%;
+				min-height:120px;
+				background:rgba(0,0,0,0.5);
+				border-radius:4px;
+				padding-left:2%;
+				padding-top:2%;
+				padding-bottom:50px;
+
+			}
+				/* player */
+				li.player {
+					width:48%;
+					height:128px;
+					border-radius:8px;
+					background:#222;
+					margin-right:2%;
+					margin-top:15px;
+					padding-left:128px;
+					position:relative;
+					float:left;
+				}
+
+					/* remove player */
+					li.player .remove-player{
+						width:16px;
+						height:16px;
+						background-image:url(/images/remove.png);
+						position:absolute;
+						top:5px;
+						right:5px;
+						cursor:pointer;
+					}
+					/* player avatar */
+					li.player .ava {
+						width:128px;
+						height:128px;
+						float:left;
+						background-image:url(/images/user1.png);
+						background-repeat:no-repeat;
+						background-position:16px;
+						background-color:#eee;
+						border-radius:8px 0px 0px 8px;
+						position:absolute;
+						top:0px;
+						left:0px;
+					}
+					li.player .room {
+						width:128px;
+						height:128px;
+						float:left;
+						background-image:url(/images/logo.png);
+						background-repeat:no-repeat;
+						background-position:16px;
+						background-color:#eee;
+						border-radius:8px 0px 0px 8px;
+						position:absolute;
+						top:0px;
+						left:0px;
+					}
+					.player.active .ava{
+						background-image:url(/images/user.png);
+						background-repeat:no-repeat;
+						background-position:16px;
+						background-color:#40B9FF;
+					}
+					.player .ava .num {
+						width:32px;
+						height:32px;
+						line-height:32px;
+						margin-top:6px;
+						font-size:20px;
+						text-align:center;
+						font-weight:bold;
+
+					}
+
+
+					/* player info */
+
+					li.player .info {
+						width:100%;
+						height:100%;
+						color:#fff;
+						padding:8px;
+						font-family:arial;
+						border-radius:0px 8px 8px 0px;
+						text-align: center;
+					}
+					li.player .info .name {
+						font-size:18px;
+						border-bottom:1px dashed #eee;
+					}
+					li.player .info .position {
+						height:25px;
+
+					}
+					li.player.active .info .position {
+						color:#3FD0FF;
+					}
+					li.player .info .status.green {
+						color:#63FF9B;
+					}
+					li.player .info .status.red {
+						color:#FF5737;
+					}
+
+			/*
+			*	player login
+			*/
+
+			#admin-login-wrapper
+			{
+				width:100%;
+				position:relative;
+				margin-top:40px;
+			}
+			.admin-login-input
+			{
+				max-width:500px;
+				margin:auto;
+				margin-top:50px;
+				border:4px solid #fff;
+				box-shadow:0px -1px 2px #333;
+				border-top-left-radius:73px 38px;
+				border-top-right-radius:73px 38px;
+				border-bottom-left-radius:73px 38px;
+				border-bottom-right-radius:73px 38px;
+				background:#222222;
+				min-height:70px;
+				margin-top:15px;
+				padding:20px;
+				line-height:30px;
+				font-size:23px;
+			}
+
+			.admin-login-input input{
+				width:100%;
+				background:transparent;
+				border:0px;
+				outline:none;
+				color:#eee;
+				text-align:center;
+			}
+				/* power up */
+				#admin-login-wrapper .power-up {
+					width:128px;
+					height:128px;
+					background-image:url(/images/power.png);
+					background-repeat:no-repeat;
+					background-position:14px 12px;
+					background-color:#3F79FF;
+					border-radius:128px;
+					border:2px solid #fff;
+					margin:auto;
+					cursor:pointer;
+					margin-top:30px;
+					text-align:center;
+					padding-top:27px;
+					font-size:25px;
+					font-weight:bold;
+					color:#fff;
+				}
+				#admin-login-wrapper .power-up:hover {
+					background-color:#39B9FF;
+				}
+				#admin-login-wrapper .power-up:active {
+					background-color:#3DDFFF;
+				}
+			/*
+			*	help header
+			*/
+			h2.help {
+				text-align:center;
+				color:#eee;
+			}
+
+				h2.title {
+					text-align:center;
+					color:#fff;
+				}
+			/*
+			*	invisible
+			*/
+			.hide {
+				display:none;
+			}
+
+			/*
+			* q wrapper
+			*/
+			.q-wrapper {
+				width:100%;
+				background-image:url('/images/q-line.png');
+				background-repeat:repeat-x;
+				padding:0px 20px;
+			}
+			/* noti-anchor
+			 *
+			 */
+			 #noti-anchor {
+			 	position: absolute;
+				padding-left: 80px;
+				padding-top: 40px;
+			 }
+			/*
+			* ============================================ REPONSIVE HANDLING
+			*/
+			@media (max-width: 800px){
+				li.player .info .name {
+					font-size:14px;
+				}
+			}
+			@media (max-width: 730px) {
+				#header {
+					height:auto;
+				}
+
+				#header #logo {
+					margin:auto;
+					position:relative;
+					top:15px;
+					left:0px;
+
+
+				}
+
+
+
+			}
+			@media (max-width: 650px) {
+				li.player {
+					width:98%;
+				}
+			}

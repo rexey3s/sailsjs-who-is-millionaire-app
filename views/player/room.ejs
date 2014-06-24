@@ -1,0 +1,26 @@
+<div id="header">
+
+      <div id="logo">
+      </div>
+      <div id="supports">
+        <img id="logout-btn" src="/images/icon-logout.png" style="margin-left:13px" height="52" width="52" />
+
+      </div>
+
+</div>
+<div id="playground-select">
+      <h2 class="help" style="margin-top:10px;">Bạn vui lòng chọn một phòng chơi để bắt đầu</h2>
+      <% if(rooms.length == 0 ){ %>
+      <div id="player-list-wrapper">
+      <div class="alert alert-info "> Chưa có phòng chơi nào được tạo </div>
+      </div>
+      <% }%>
+      <% _.each(rooms,function(room) { %>
+      <div id="playground-list-wrapper">
+        <div class="q-wrapper">
+
+          <a href="/player/join/?id=<%=room.id%>"><div class="playground"><%= room.name%></div></a>
+        </div>
+    <% });%>
+</div>
+</div>

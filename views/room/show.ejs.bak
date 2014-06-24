@@ -1,0 +1,101 @@
+
+
+    <!-------------- function buttons -------------->
+    <div class="q-wrapper ">
+      <div class="function-btns-wrapper" >
+        <div class="function-btn show-player-main-list">Người chơi trong phòng</div>
+        <div class="function-btn start-choosing-main-player">Chọn người chơi chính</div>
+
+
+        <div class="function-btn start-the-game">Người chơi chính</div>
+        <div class="function-btn main-player-watch">Quan sát người chơi chính</div>
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <!-------------- players list -------------->
+    <div id="player-list-wrapper">
+        <div id="player-list-holder">
+              <div class="player-main-list">
+            <h2 class="title login"> Những người tham gia hiện đang ở trong phòng <%= room.name%></h2>
+            <ul  id="joined-list" class="player-list login">
+            <%_.each(players,function(player) { %>
+
+             <li data-model="player" data-id="<%= player.id%>" class="player">
+
+                <div class="ava"></div>
+                <div class="info" data-model="player" data-id="<%= player.id%>">
+                  <div class="name"><%= player.name %></div>
+                  <div class="position">Người tham gia</div>
+                 <% if(player.isReady)  { %>
+                  <div class="status green">Sẵn sàng</div>
+                  <% } else { %>
+                  <div class="status red">Chưa sẵn sàng</div>
+
+                  <% }%>
+                </div>
+                <!-- <div class="remove-player"></div> -->
+              </li>
+              <% });%>
+
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="main-player-chosen-wrapper hide">
+          <div class="q-wrapper ">
+          <div class="function-btns-wrapper" >
+          <div class="function-btn choose-main">Bắt đầu chọn</div>
+          <div class="clearfix"></div>
+          </div>
+          </div>
+            <h2 class="title main-player-chosen">Kết quả câu hỏi chọn người chơi chính</h2>
+            <ul id="first-quiz-result" class="player-list main-player-chosen">
+            <%_.each(players,function(player) { %>
+            <li data-model="player" data-id="<%= player.id%>" class="player">
+
+            <div class="ava"></div>
+                <div class="info" data-model="player" data-id="<%= player.id%>">
+                  <div class="name"><%= player.name %></div>
+                <div class='position'> Kết quả</div>
+               <% if(player.first_quiz_result != null) { %>
+              <% if( typeof player.first_quiz_result.correct != 'undefined' && typeof player.first_quiz_result.time != 'undefined')  { %>
+                  <% if(player.first_quiz_result.correct) { %>
+                        <div class="status green">Trả lời đúng trong: <%- player.first_quiz_result.time %> giây</div>
+                  <% } else { %>
+                        <div class="status red">Trả lời sai trong: <%- player.first_quiz_result.time %> giây</div>
+                  <% } }  }%>
+                              </div>
+                  <!-- <div class="remove-player"></div> -->
+              </li>
+              <% }); %>
+
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="main-player-wrapper hide">
+              <div class="q-wrapper ">
+              <div class="function-btns-wrapper" >
+              <div class="function-btn advertise">Phát quảng cáo</div>
+              <div class="clearfix"></div>
+              </div>
+              </div>
+            <h2 class="title main-player-chosen">Thông tin người chơi chính</h2>
+              <ul id='main-player-history' class="player-list">
+
+
+              </ul>
+              <div class="clearfix"></div>
+          </div>
+          <div id="qa-wrapper" class="qa-wrapper-admin hide">
+
+
+      <div class="clearfix"></div>
+             <!--  <div class="q-line l1"></div>
+              <div class="q-line l2"></div> -->
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+</div>
+

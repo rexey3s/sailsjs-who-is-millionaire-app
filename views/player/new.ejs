@@ -1,0 +1,53 @@
+<div id="header">
+
+      <div id="logo">
+      </div>
+      <div id="supports">
+
+      </div>
+
+</div>
+    <div id='player_login'>
+      <h2 class="help" style="margin-top:10px;">Đăng ký nhanh</h2>
+      <% if(flash && flash.err) { %>
+        <% if(typeof flash.err == 'object') {%>
+        <% Object.keys(flash.err).forEach(function(error) { %>
+
+        <div id="player-list-wrapper"><div class="alert alert-danger"><%- JSON.stringify(flash.err[error].message) %></div></div>
+        <% }) %>
+        <% } %>
+        <%  } %>
+        <div id="player-regis-wrapper" >
+      <form id="form-signup" method="POST" >
+
+        <div class="q-wrapper">
+          <div class="player-regis-input">
+            <input type="text" name="name" class="player-regis player-name" placeholder="Tên người chơi"/>
+          </div>
+        </div>
+        <div class="q-wrapper">
+          <div class="player-regis-input">
+            <input type="email" name="email" class="player-regis-email player-regis player-nick" placeholder="Email đăng ký"/>
+          </div>
+        </div>
+        <div class="q-wrapper">
+          <div class="player-regis-input">
+            <input type="password" name="password" class="player-regis" placeholder="Mật khẩu tối thiểu 3 ký tự"/>
+          </div>
+        </div>
+        <div class="q-wrapper">
+          <div class="player-regis-input">
+            <input type="password" name="confirmation" class="player-regis" placeholder="Xác nhận mật khẩu"/>
+          </div>
+        </div>
+        <!-- <input type="hidden" name="_csrf" value="<%= _csrf %>"> -->
+        <!-- <input type="submit" id="player-power" class="power-up " value="Sign Up" /> -->
+
+          <div id="player-sign-up-btn"class="power-up">
+
+        </div>
+
+
+      </form>
+      </div>
+    </div>

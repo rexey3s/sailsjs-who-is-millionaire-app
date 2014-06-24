@@ -1,0 +1,120 @@
+
+<div id="header">
+
+      <div id="logo">
+      </div>
+      <div id="supports">
+      <img id="logout-btn" src="/images/icon-logout.png" height="52" width="52" />
+
+      </div>
+      <div id="clock"></div>
+
+</div>
+
+    <div class="q-wrapper ">
+      <div class="function-btns-wrapper" >
+        <div class="function-btn show-player-main-list">Người chơi trong phòng</div>
+        <div class="function-btn start-choosing-main-player">Chọn người chơi chính</div>
+        <div class="function-btn" id="delete-room"> Xóa phòng</div>
+
+
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <div id="player-list-wrapper" data-model="room" data-room="<%=room.name %>"class="" >
+     <h2 class=".player-num alert alert-success"><center>
+
+     Phòng: <%-'<b>'+room.name+'</b>'%> | Số người tham gia: <%- '<b id="player-num">'+players.length+'</b>' %>
+
+     </center>
+     </h2>
+        <div id="player-list-holder">
+              <div class="player-main-list">
+            <ul  id="joined-list" class="player-list login">
+            <%_.each(players,function(player) { %>
+
+             <li data-model="player" data-id="<%= player.id%>" class="player">
+
+                <div class="ava"></div>
+                <div class="info  "data-model="player" data-id="<%= player.id%>">
+
+                  <div class="name">
+                  <%= player.name %></div>
+                  <div class="position">Người tham gia</div>
+                 <% if(player.isReady)  { %>
+                  <div class="status green">Sẵn sàng</div>
+                  <% } else { %>
+                  <div class="status red">Chưa sẵn sàng</div>
+
+                  <% }%>
+                </div>
+                <!-- <div class="remove-player"></div> -->
+              </li>
+              <% });%>
+
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="main-player-chosen-wrapper hide">
+          <div class="function-btns-wrapper" >
+            <%  var countPlayer = 0;_.some(players,function(player) { %>
+            <% if(player.state == 'chon_nguoi_choi_chinh' || player.state =='cho_kq_chon_nguoi_choi_chinh' || player.state == '') {
+              countPlayer++;
+              }  %>
+          <% });if(countPlayer > 0) { %>
+          <div class="function-btn choose-main">Bắt đầu chọn</div>
+          <%} else {%>
+          <div class="function-btn advertise">Quảng cáo</div>
+          <%} %>
+          <div class="clearfix"></div>
+          </div>
+            <h2 class="title main-player-chosen">Kết quả câu hỏi chọn người chơi chính</h2>
+            <ul id="first-quiz-result" class="player-list main-player-chosen">
+            <%_.each(players,function(player) { %>
+
+                <% if(player.state == 'nguoi_choi_chinh') {%>
+                <li data-model="player" data-id="<%= player.id%>" class="player active">
+
+                <% } else { %>
+                <li data-model="player" data-id="<%= player.id%>" class="player">
+
+                <% } %>
+                <div class="ava"></div>
+                <div class="info" data-model="player" data-id="<%= player.id%>">
+                <% if(player.state == 'nguoi_choi_chinh') {%>
+                <div class="name">
+                 <%- player.name %>
+                là người chơi chính
+                </div>
+
+                <div class='position'>
+                Câu: <%= parseInt(player.curr_quiz) + 1%>
+                </div>
+                <div class='status green'>
+                Thưởng: <%= player.point%> VNĐ
+                </div>
+                <% } else { %>
+                <div class="name"><%= player.name %></div>
+                <div class='position'> Khán giả</div>
+                <% } %>
+
+                <% if( player.first_quiz_result != null )  { %>
+                <% if(player.first_quiz_result.correct) { %>
+                      <div class="status green">Trả lời đúng ở giây thứ: <%- player.first_quiz_result.time %></div>
+                <% } else { %>
+                      <div class="status red">Trả lời sai ở giây thứ: <%- player.first_quiz_result.time %>
+                      </div>
+                <% } } %>
+                </div>
+                </li>
+              <% });%>
+
+
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+</div>
+

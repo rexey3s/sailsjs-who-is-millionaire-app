@@ -1,0 +1,466 @@
+
+			*{
+				margin:0px;
+				padding:0px;
+				box-sizing:border-box;
+				-webkit-box-sizing:border-box;
+				-moz-box-sizing:border-box;
+				-o-box-sizing:border-box;
+			}
+			ul {
+				list-style:none;
+				font-family:arial;
+				line-height:37px;
+
+			}
+			body {
+				background-image:url(images/bgs/bg1.png);
+				background-repeat:repeat-x;
+				background-size:cover;
+			}
+
+			/*
+			*	header part
+			*/
+			#header {
+				max-width:800px;
+				height:230px;
+				position:relative;
+				margin:auto;
+			}
+			#logo {
+					width: 200px;
+					height:200px;
+					background-image:url(/images/logo.png);
+					background-repeat:no-repeat;
+					background-size:contain;
+					position:absolute;
+					top:30px;
+					left:300px;
+				}
+				#header #supports {
+					width:200px;
+					float:left;
+					margin-top:98px;
+					margin-left:50px;
+					cursor:pointer;
+				}
+				#header #supports img {
+					opacity:0.8;
+				}
+				#header #supports img:hover {
+					opacity:1;
+				}
+				#header #supports img.disable {
+					opacity:0.2;
+				}
+
+			.question-wrapper{
+				max-width:800px;
+				height:100px;
+				padding:0px 30px;
+				margin:auto;
+
+			}
+			.question-holder {
+				width:100%;
+				height:100%;
+				overflow:hidden;
+				border:4px solid #fff;
+				box-shadow:0px -1px 2px #333;
+				border-top-left-radius:145px 60px;
+				border-top-right-radius:145px 60px;
+				border-bottom-left-radius:145px 60px;
+				border-bottom-right-radius:145px 60px;
+				background-color:#222222;
+				margin:auto;
+				margin-top:50px;
+				line-height:20px;
+				padding:20px 85px;
+				color:#fff;
+				font-size:20px;
+				font-family:Arial, Helvetica, sans-serif;
+			}
+
+			#qa-wrapper {
+				position:relative;
+
+			}
+			#qa-wrapper .q-line{
+				width:100%;
+				height:4px;
+				background:#fff;
+				position:absolute;
+				top:49px;
+				z-index:-1;
+				box-shadow:0 0px 3px #333;
+			}
+
+			.answer-wrapper {
+				max-width:800px;
+				margin:auto;
+				margin-top:20px;
+				padding:0px 30px;
+			}
+
+			.answer-wrapper .answer-holder{
+				width:48%;
+				height:73px;
+				cursor:pointer;
+				float:left;
+				border:4px solid #fff;
+				box-shadow:0px -1px 2px #333;
+				border-top-left-radius:73px 38px;
+				border-top-right-radius:73px 38px;
+				border-bottom-left-radius:73px 38px;
+				border-bottom-right-radius:73px 38px;
+				background-color:#222222;
+				min-height:60px;
+				margin-top:15px;
+				padding:20px 20px 20px 33px;
+				color:#fff;
+				font-size:18px;
+				position:relative;
+			}
+				.answer-holder.chosen-ans {background-color:#27BBFF;}
+				.answer-holder .order {
+					width:32px;
+					height:32px;
+					font-size:22px;
+					font-weight:bold;
+					text-align:center;
+					position:absolute;
+					right:14px;
+					top:16px;
+
+				}
+
+				/* lock answer */
+				.lock-up {
+					width:128px;
+					height:128px;
+					background-image:url(/images/lock.png);
+					background-repeat:no-repeat;
+					background-position:14px 12px;
+					background-color:#3F79FF;
+					border-radius:128px;
+					border:2px solid #fff;
+					margin:auto;
+					cursor:pointer;
+					margin-top:30px;
+					text-align:center;
+					padding-top:27px;
+					font-size:25px;
+					font-weight:bold;
+					color:#fff;
+					box-shadow: 0 0 2px #333;
+				}
+				.lock-up:hover {
+					background-color:#39B9FF;
+				}
+				.lock-up:active {
+					background-color:#3DDFFF;
+				}
+
+
+			.answer-wrapper .answer-holder:hover{
+				background:#0C67FF;
+				color:#ffffff;
+			}
+			.answer-wrapper .answer-holder.left {
+				margin-right:2%;
+			}
+			.answer-wrapper .answer-holder.right {
+				margin-left:2%;
+			}
+
+			.q-line.l1 {
+				margin-top:121px;
+			}
+			.q-line.l2 {
+				margin-top:210px;
+			}
+
+			/*
+			*	money level table
+			*/
+			.money-levels-wrapper {
+				width:260px;
+				height:740px;
+				position:absolute;
+				top:20px;
+				right:20px;
+				background-color:rgba(0,0,0,1);
+				border-radius:3px;
+				color:#fff;
+				font-size:21px;
+				font-family:Verdana, Geneva, sans-serif;
+			}
+				.money-levels-wrapper li{
+					padding:6px 10px;
+					width:260px;
+					float:left;
+
+				}
+				.q_num {http://www.w3schools.com/cssref/pr_border-spacing.asp
+					text-align:right;
+					float:left;
+					text-align:right;
+					width:30px;
+					color:#FFF2CC;
+				}
+				.price {
+					padding-left:10px;
+					width:200px;
+					text-align:right;
+					color:#FFFFC1;
+					float:right;
+					padding-right:7px;
+				}
+				.money-levels-wrapper li.base div {
+					color:#fff;
+				}
+				.money-levels-wrapper li.active {
+					background-color:#269FFF;
+				}
+				.money-levels-wrapper li.active div {
+					color:#ffffff;
+				}
+				.money-levels-wrapper li.won .price {
+					background-image:url(/images/diamond.png);
+					background-repeat:no-repeat;
+					background-position: 0px 6px;
+				}
+
+			/* mobile device */
+
+
+			/*
+			*	player login
+			*/
+
+			#player-regis-wrapper,
+			#playground-list-wrapper {
+				width:100%;
+				position:relative;
+				margin-top:40px;
+			}
+			.player-regis-input,
+			.playground {
+				max-width:500px;
+				margin:auto;
+				margin-top:50px;
+				border:4px solid #fff;
+				box-shadow:0px -1px 2px #333;
+				border-top-left-radius:73px 38px;
+				border-top-right-radius:73px 38px;
+				border-bottom-left-radius:73px 38px;
+				border-bottom-right-radius:73px 38px;
+				background:#222222;
+				min-height:70px;
+				margin-top:15px;
+				padding:20px;
+				line-height:30px;
+				font-size:23px;
+			}
+				.playground {
+					text-align:center;
+					color:#fff;
+					cursor:pointer;
+				}
+				.playground:hover {
+					background-color:#4253FF;
+				}.playground:active {
+					background-color:#4395FF;
+				}
+			.player-regis-input input{
+				width:100%;
+				background:transparent;
+				border:0px;
+				outline:none;
+				color:#eee;
+				text-align:center;
+			}
+				/* power up */
+				#player-regis-wrapper .power-up {
+					width:128px;
+					height:128px;
+					background-image:url(/images/power.png);
+					background-repeat:no-repeat;
+					background-position:14px 12px;
+					background-color:#3F79FF;
+					border-radius:128px;
+					border:2px solid #fff;
+					margin:auto;
+					cursor:pointer;
+					margin-top:30px;
+					text-align:center;
+					padding-top:27px;
+					font-size:25px;
+					font-weight:bold;
+					color:#fff;
+				}
+				#player-regis-wrapper .power-up:hover {
+					background-color:#39B9FF;
+				}
+				#player-regis-wrapper .power-up:active {
+					background-color:#3DDFFF;
+				}
+
+			/*
+			* clock style
+			*/
+			#clock {
+				width:96px;
+				height:96px;
+				background-image:url(/images/clock.png);
+				background-repeat:no-repeat;
+				background-size:cover;
+				text-align:center;
+				line-height:105px;
+				color:#fff;
+				font-size:25px;
+				position:absolute;
+				right:80px;
+				top:70px;
+			}
+			#bitcoin {
+				width:96px;
+				height:96px;
+				background-image:url(/images/bitcoin.png);
+				background-repeat:no-repeat;
+				background-size:cover;
+				text-align:center;
+				line-height:105px;
+				color:#fff;
+				font-size:25px;
+				position:absolute;
+				right:80px;
+				top:70px;
+
+			}
+
+			#quit-game {
+				position:absolute;
+				right:80px;
+				top:90px;
+			}
+			/*
+			*	help header
+			*/
+			h2.help {
+				text-align:center;
+				color:#eee;
+			}
+
+			/*
+			*	invisible
+			*/
+			.hide {
+				display:none;
+			}
+
+			/*
+			* q wrapper
+			*/
+			.q-wrapper {
+				width:100%;
+				background-image:url('/images/q-line.png');
+				background-repeat:repeat-x;
+				padding:0px 25px;
+			}
+
+			/*
+			* ============================================ REPONSIVE HANDLING
+			*/
+			@media (max-width: 730px) {
+				#header {
+					height:auto;
+				}
+				#header #supports {
+					float:none;
+					margin:auto;
+					margin-top:20px;
+				}
+				#header #logo {
+					margin:auto;
+					position:relative;
+					top:15px;
+					left:0px;
+
+
+				}
+				#clock {
+					position:absolute;
+					right:10px;
+					top:15px;
+					width:64px;
+					height:64px;
+					line-height:61px;
+					background-image:none;
+					border:2px solid #fefefe;
+					border-radius:64px;
+				}
+
+				h2.help {
+					margin-top:20px;
+					font-size:23px;
+				}
+
+				.question-holder {
+					font-size:17px;
+				}
+				.answer-holder span{
+					font-size:15px;
+				}
+
+
+
+			}
+
+			@media (max-width: 480px) {
+				.question-holder {
+					padding:17px 30px;
+					font-size:14px;
+				}
+				.answer-wrapper .answer-holder {
+					padding:10px 15px;
+				}
+				.answer-holder span{
+					font-size:12px;
+				}
+				h2.help {
+					font-size:20px;
+				}
+			}
+				#ads-screen-cover {
+
+				}
+				#ads-wrapper {
+					width:100%;
+					height:100%;
+					position:fixed;
+					top:0px;
+					left:0px;
+					margin:0px;
+					padding:0px;
+					background-color:rgba(0,0,0,0.7);
+					z-index:4999;
+					display:none;
+
+				}
+				#ads-holder {
+
+					max-width:94%;
+					position: absolute;
+					z-index:5000;
+					border:8px solid #fefefe;
+					box-shadow:0 0 8px #fff;
+				}
+				#ads-wrapper h2.title{
+					color:#fefefe;
+					text-align:center;
+					padding-top:35px;
+					padding-bottom:20px;
+					font-family:times-new-romance;
+				}

@@ -1,0 +1,42 @@
+<div id="header">
+
+      <div id="logo">
+      </div>
+      <div id="supports">
+      <img id="logout-btn" src="/images/icon-logout.png" height="52" width="52" />
+      </div>
+
+</div>
+<div id="player-list-wrapper">
+
+
+<div class="panel panel-info">
+      <!-- Default panel contents -->
+      <div class="panel-heading">Bảng điểm của <%= thisPlayer.name %></div>
+      <div class="panel-body">
+        <p>Bảng điểm từ các lần chơi trước của người chơi và các tham gia cùng phòng</p>
+      </div>
+
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Tên người chơi</th>
+            <th>Thời gian tham gia</th>
+            <th>Tiền thưởng</th>
+           </tr>
+        </thead>
+        <tbody>
+        <% var i = 0;_.each(scoreboard,function(row) {%>
+          <tr>
+            <td><%= ++i%></td>
+            <td><%= row.name %></td>
+            <td><%= row.date %></td>
+            <td><%= row.point %> VNĐ</td>
+          </tr>
+          <% });%>
+        </tbody>
+      </table>
+    </div>
+</div>

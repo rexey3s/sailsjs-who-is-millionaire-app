@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- title %></title>
+    <meta http-equiv="refresh" content="1800" >
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `link` tags, or asynchronously
+        on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+        take advantage of Sails' boilerplate asset management.
+
+        By default, stylesheets from your `assets/linker/styles` folder are included
+        here automatically.  Both CSS (.css) and LESS (.less) are supported.
+        In production, your styles will be minified and concatenated into a single file.
+
+        To customize any part of the built-in behavior, just edit your Gruntfile.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/linker/libs/bootstrap/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/linker/libs/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/linker/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/linker/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/linker/styles/admin-style.css">
+    <link rel="stylesheet" href="/linker/styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/linker/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/linker/styles/index-style.css">
+    <!--STYLES END-->
+    <script type="text/javascript">
+      window.mordor = { csrf: "<%= _csrf %>" };
+    </script>
+    <audio id="noti-sounds">
+      <source src="/sounds/notify.ogg" type="audio/ogg">
+      <source src="/sounds/notify.mp3" type="audio/mpeg">
+      <source src="/sounds/notify.wav" type="audio/wav">
+    </audio>
+    <audio id="welcome-sound">
+      <source src="/sounds/opening.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="playing-sound">
+      <source src="/sounds/playgame.mp3" type="audio/mpeg">
+    </audio>
+  </head>
+
+  <body>
+
+
+    <%- body %>
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+    		HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/linker/templates` folder, then
+        include them here automatically.
+
+        To customize this behavior to fit your needs, just edit your Gruntfile.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your templates using a server-side stringfile
+              before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/jst.js"></script>
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' boilerplate asset management.
+
+      By default, filesin your `assets/linker/js` folder are included here
+      automatically.  Both JavaScript (.js) and CoffeeScript (.coffee) are supported.
+      In production, your scripts will be minified and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit your Gruntfile.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/linker/js/socket.io.js"></script>
+    <script src="/linker/js/sails.io.js"></script>
+    <script src="/linker/js/jquery.js"></script>
+    <script src="/linker/js/jquery.min.js"></script>
+    <script src="/linker/js/bootstrap.min.js"></script>
+    <script src="/linker/js/Chart.min.js"></script>
+    <script src="/linker/js/app.js"></script>
+    <script src="/linker/js/admin-script.js"></script>
+    <script src="/linker/js/bootbox.min.js"></script>
+    <script src="/linker/js/index-script.js"></script>
+    <script src="/linker/js/jquery.easing.1.3.min.js"></script>
+    <script src="/linker/js/showroom.js"></script>
+    <script src="/linker/js/signup.validate.js"></script>
+    <script src="/linker/js/underscore.js"></script>
+    <!--SCRIPTS END-->
+    <script type="text/javascript">
+    $(document).ready(function()  {
+      /**
+       * trợ giúp 1
+       */
+       $('#audience-support').bind('click',function(){
+          //   bootbox.confirm('Xác nhận sử dụng quyền trợ giúp nhờ khán giả',function(confirm) {
+          //   if(confirm == true) {
+          //       var curr_quiz = $('.question-holder').attr('data-value');
+          //       $.ajax({
+          //         url : '/player/audience_survey',
+          //         data : {curr_quiz : curr_quiz},
+          //         type : 'post',
+          //         error : function(err) { console.log(err) },
+          //         success : function(res) { if(!res.ok) { bootbox.alert('Lỗi: '+res.msg) }else{ bootbox.alert(res.msg) }}
+          //         });
+          //   }
+          // });
+          bootbox.dialog({
+            message:"Bạn có 2 tùy chọn quyền lấy khảo sát từ khán giả</br> -'Random khảo sát': chương trình giả sử có 100 khán giả trong trường quay và sẽ random từng % khán giả trả lời theo 4 đáp án</br> -'Khảo sát những khán giả trong phòng': giao diện của các khán giả sẽ được mở khóa để trả lời câu hỏi này, lưu ý bạn phải chờ khoảng 30s để chương trình thu lại kết quả từ khán giả và tổng hợp lại</br>Quan trọng: bạn chỉ được chọn 1 trong 2 tùy chọn",
+            title: "Tùy chọn trợ giúp",
+            buttons: {
+            cancel :{
+              label: "Hủy"
+            },
+            choiceA:{
+              label: "Random khảo sát",
+              className : "btn-primary",
+              callback: function(){
+                bootbox.confirm('Xác nhận sử dụng quyền trợ giúp nhờ khán giả',function(confirm) {
+                  if(confirm == true) {
+                    var curr_quiz = $('.question-holder').attr('data-value');
+                    $.ajax({
+                      url : '/player/audience_support',
+                      data : {curr_quiz : curr_quiz},
+                      type : 'post',
+                      error : function(err) { console.log(err) },
+                      success : function(res) { if(!res.ok) { bootbox.alert('Lỗi: '+res.msg)  }}
+                      });
+                  }
+                });
+              }
+            },
+            choiceB: {
+              label: 'Khảo sát những khán giả trong phòng',
+              className: 'btn btn-danger',
+              callback: function(){
+                bootbox.confirm('Xác nhận sử dụng quyền trợ giúp nhờ khán giả',function(confirm) {
+                  if(confirm == true) {
+                    var curr_quiz = $('.question-holder').attr('data-value');
+                    $.ajax({
+                      url : '/player/audience_survey',
+                      data : {curr_quiz : curr_quiz},
+                      type : 'post',
+                      error : function(err) { console.log(err) },
+                      success : function(res) { if(!res.ok) { bootbox.alert('Lỗi: '+res.msg) }else{ bootbox.alert(res.msg) }}
+                      });
+                  }
+                });
+              }
+            }}});
+
+       });
+       $('#audience-support').popover({
+          animation : true,
+          placement : 'bottom',
+          trigger : 'hover',
+          content : 'Nhờ khán giả trợ giúp'
+       });
+       /**
+       * trợ giúp 2
+       */
+        $('#5050').bind('click',function(){
+          bootbox.confirm('Xác nhận sử dụng quyền trợ giúp 50/50',function(confirm) {
+          if(confirm == true) {
+          var curr_quiz = $('.question-holder').attr('data-value');
+          $.ajax({
+                  url : '/player/5050',
+                  data : {curr_quiz : curr_quiz},
+                  type : 'post',
+                  error : function(err) { console.log(err) },
+                  success : function(res) { if(!res.ok) bootbox.alert(res.msg) ; console.log(res.msg) }
+            })
+            }
+          })
+        });
+        $('#5050').popover({
+          animation : true,
+          placement : 'bottom',
+          trigger : 'hover',
+          content : 'Trợ giúp 50/50 sẽ tô đỏ 2 câu trả lời không đúng'
+        });
+        /**
+         *
+         */
+          $('#relative-support').bind('click',function(){
+          bootbox.confirm('Xác nhận sử dụng quyền trợ giúp nhờ người thân',function(confirm) {
+          if(confirm == true) {
+          var curr_quiz = $('.question-holder').attr('data-value');
+          $.ajax({
+                  url : '/player/relative',
+                  data : {curr_quiz : curr_quiz},
+                  type : 'post',
+                  error : function(err) { console.log(err) },
+                  success : function(res) { if(!res.ok)  { bootbox.alert(res.msg) } else { bootbox.alert(res.msg) } }
+            })
+            }
+          })
+        });
+        $('#relative-support').popover({
+          animation : true,
+          placement : 'bottom',
+          trigger : 'hover',
+          content : 'Với quyền trợ giúp này bạn chờ 30s để chương trình gửi câu hỏi tới người thân của bạn,sau 30s câu trả lời của người thân của bạn sẽ được tô màu xanh lá cây'
+        });
+        /**
+         * Xem tiền thưởng
+         */
+        $('#toggle-score').bind('click',function(e) {
+                  if($('#scoreboard').hasClass('hide')) {
+                    $('#scoreboard').removeClass('hide');
+                  } else {
+                    $('#scoreboard').addClass('hide');
+                  }
+        });
+        $('#toggle-score').popover({
+          animation : true,
+          placement : 'bottom',
+          trigger : 'hover',
+          content : 'Click để hiện hoặc ẩn bảng tiền thưởng'
+        });
+        $('#stop-game').bind('click',function() {
+          var curr_quiz = $('.question-holder').attr('data-value');
+          bootbox.confirm('Nếu bạn dừng cuộc chơi thì bạn sẽ nhận được giải thưởng '+getPrize(curr_quiz),function(confirm){
+              if(confirm == true) {
+                    $.ajax({
+                      url : '/player/quit',
+                      data : {curr_quiz : curr_quiz},
+                      type :'POST'
+                    }).done(function(res) {
+                      if(res.ok) console.log(res.msg);
+                    }).fail(function(err) {
+                      console.log(err);
+                    })
+              }
+            })
+        });
+        $('#stop-game').popover({
+          animation : true,
+          placement : 'bottom',
+          trigger : 'hover',
+          content : 'Click để dừng cuộc chơi, bạn sẽ nhận được số tiền thưởng ở mức của câu hỏi thứ 5 hoặc thứ 10'
+        });
+        $('#delete-room').bind('click',function() {
+          var curr_quiz = $('.question-holder').attr('data-value');
+          bootbox.confirm('Nếu bạn xóa phòng tất cả người tham gia trong phòng sẽ buộc phải rời khỏi phòng',function(confirm){
+              if(confirm == true) {
+                    $.ajax({
+                      url : '/admin/deleteRoom',
+                      type :'GET'
+                    }).done(function(res) {
+                      if(res.ok) {
+                        bootbox.alert(res.msg,function() {window.location = '/room';})
+                        window.setTimeout("window.location = '/room'",1000);
+                      } else{
+                        bootbox.alert(res.msg);
+                      }
+                    }).fail(function(err) {
+                      console.log(err);
+                    })
+              }
+            })
+        });
+        $('#delete-room').popover({
+          animation : true,
+          placement : 'top',
+          trigger : 'hover',
+          content : 'Click để xóa phòng và rời khỏi phòng'
+        });
+        $('#logout-btn').bind('click',function(){
+          var page = document.location.pathname;
+          page = page.replace(/(\/)$/, '');
+          console.log(page);
+          switch(page) {
+            case '/room':
+            case '/room/new':
+            case '/room/show': bootbox.confirm('Xác nhận đăng xuất vai trò MC',function(confirm) {
+                if(confirm == true){
+                  window.location = '/admin/logout';
+                }
+              });
+              break;
+            case '/player/room':
+            case '/player/showroom':
+            case '/player/mainplayer':
+            case '/player/start1quiz':
+            case '/player/scoreboard':
+            case '/player/audience': bootbox.confirm('Xác nhận đăng xuất khỏi chương trình',function(confirm) {
+                if(confirm == true) {
+                  window.location = '/player/logout';
+                }
+            });
+            break;
+          }
+        });
+         $('#logout-btn').popover({
+          animation : true,
+          placement : 'bottom',
+          trigger : 'hover',
+          content : 'Click để đăng xuất, trạng thái của bạn sẽ được lưu lại trong database, bạn có thể quay lại chơi bất kì lúc nào trong khi chương trình đang diễn ra'
+        });
+        $('#player-sign-up-btn').click(function(e) {
+            e.preventDefault();
+
+            var yourName = $('input[name=name]').val();
+            var yourEmail = $('input[name=email]').val();
+            var yourPassword = $('input[name=password]').val();
+            var yourConfirmation = $('input[name=confirmation]').val();
+            if(yourName == '') {
+              bootbox.alert('Không được để tên trống');
+
+            } else if(yourPassword == '' || yourConfirmation == '') {
+              bootbox.alert('Không được để mật khẩu trống');
+            } else if (yourPassword.length < 3) {
+              bootbox.alert('Mật khẩu không đủ 3 kí tự');
+            } else if(yourPassword != yourConfirmation)  {
+              bootbox.alert("Mật khẩu và xác nhận không khớp");
+            }
+            else {
+              var reqObj = {
+                name : yourName,
+                email : yourEmail,
+                password : yourPassword,
+                confirmation : yourConfirmation
+              }
+              $.ajax({
+                url: '/player/create',
+                data : reqObj,
+                type: 'POST'
+              }).done(function(res) {
+                if(!res.ok) {
+                   if( typeof res.msg == 'string') {
+                  bootbox.alert('Lỗi: '+ res.msg);
+                  } else if (typeof res.msg == 'object') {
+                    bootbox.alert('Lỗi: '+ JSON.stringify(res.msg));
+                  }
+                } else {
+                  bootbox.alert(res.msg,function() {
+                    window.location = '/player/login';
+                  });
+                  window.setTimeout('window.location="/player/login"',3000);
+                }
+              }).fail(function(err) {
+                console.log(err);
+              })
+            }
+         });
+          $('#admin-sign-up-btn').click(function(e) {
+            e.preventDefault();
+            var yourName = $('input[name=name]').val();
+            var yourEmail = $('input[name=email]').val();
+            var yourPassword = $('input[name=password]').val();
+            var yourConfirmation = $('input[name=confirmation]').val();
+            if(yourName == '') {
+              bootbox.alert('Không được để tên trống');
+
+            } else if(yourPassword == '' || yourConfirmation == '') {
+              bootbox.alert('Không được để mật khẩu và xác nhận trống');
+            } else if (yourPassword.length < 3) {
+              bootbox.alert('Mật khẩu không đủ 3 kí tự');
+            } else if(yourPassword != yourConfirmation)  {
+              bootbox.alert("Mật khẩu và xác nhận không khớp");
+            }
+            else {
+              var reqObj = {
+                name : yourName,
+                email : yourEmail,
+                password : yourPassword,
+                confirmation : yourConfirmation
+              }
+              $.ajax({
+                url: '/admin/create',
+                data : reqObj,
+                type: 'POST'
+              }).done(function(res) {
+                if(!res.ok) {
+                  if( typeof res.msg == 'string') {
+                  bootbox.alert('Lỗi: '+ res.msg);
+                  } else if (typeof res.msg == 'object') {
+                    bootbox.alert('Lỗi: '+ JSON.stringify(res.msg));
+                  }
+                } else {
+                  bootbox.alert(res.msg,function() {
+                    window.location = '/admin/login';
+                  });
+                  window.setTimeout('window.location="/admin/login"',3000);
+                }
+              }).fail(function(err) {
+                console.log(err);
+              })
+            }
+         });
+    });
+    var pointFromQuizIndex = function(quizIndex) {
+    switch(quizIndex) {
+    case 0 : return '200,000';
+    case 1 : return '400,000';
+    case 2 : return '600,000';
+    case 3 : return '1,000,000';
+    case 4 : return '2,000,000';
+    case 5 : return '3,000,000';
+    case 6 : return '6,000,000';
+    case 7 : return '10,000,000';
+    case 8 : return '14,000,000';
+    case  9 : return '22,000,000';
+    case  10 : return '30,000,000';
+    case  11 : return '40,000,000';
+    case  12 : return '60,000,000';
+    case  13 : return '85,000,000';
+    case  14 : return '150,000,000';
+    default : return 'Giải khuyến khích 200,000';
+    }
+    };
+    var getPrize = function(quizIndex) {
+        if(quizIndex < 5) return "Giải khuyến khích 200,000" ;
+        if(quizIndex >=5 && quizIndex < 10) return pointFromQuizIndex(4);
+        if(quizIndex >=10 && quizIndex < 14) return pointFromQuizIndex(9);
+        if(quizIndex == 14) return pointFromQuizIndex(14);
+
+    };
+    function show_ads(content,w,h) {
+
+      var winW = $(window).width();
+      var winH = $(window).height();
+      $('#ads-holder').html(content);
+      $('#ads-wrapper').fadeIn(380);
+      $('#ads-holder').css({
+        'left' : (winW - w) / 2 + 'px',
+        'top' : (winH - h) / 2 + 'px'
+      }).fadeIn(380);
+
+      $(window).unbind('resize').resize(function(){
+        show_ads(content,w,h);
+      })
+    }
+    function hide_ads() {
+      $('#ads-wrapper').fadeOut('fast');
+      $(window).unbind('resize');
+    }
+    </script>
+  </body>
+</html>

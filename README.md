@@ -1,4 +1,2 @@
-firstWebApp
-===========
-
-WhoWantToBeAMillionaire
+# projectApp
+### a Sails application

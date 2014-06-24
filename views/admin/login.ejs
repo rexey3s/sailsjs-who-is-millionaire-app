@@ -1,0 +1,35 @@
+<div id="header">
+
+      <div id="logo">
+      </div>
+      <div id="supports">
+
+      </div>
+
+</div>
+<form id="form-signin" method="POST" action="/admin/doLogin">
+<h2 class="help" style="margin-top:10px;">MC Login</h2>
+       <% if(flash && flash.err) { %>
+        <% if(typeof flash.err == 'object') {%>
+        <% Object.keys(flash.err).forEach(function(error) { %>
+
+        <div id="player-list-wrapper"><div class="alert alert-danger"><%- JSON.stringify(flash.err[error].message) %></div></div>
+        <% }) %>
+        <% } %>
+        <%  } %>
+<div class="q-wrapper">
+    <div class="player-regis-input">
+    <input type="email" name="email" class="player-regis-email player-regis player-nick" placeholder="Email"/>
+  </div>
+</div>
+  <div class="q-wrapper">
+  <div class="player-regis-input">
+    <input type="password" name="password" class="player-regis" placeholder="Mật khẩu"/>
+  </div>
+  </div>
+  <div class="q-wrapper">
+  <div class="player-regis-input">
+  <input type="submit" class="login-btn" value="Đăng nhập"/>
+  </div>
+  </div>
+</form>

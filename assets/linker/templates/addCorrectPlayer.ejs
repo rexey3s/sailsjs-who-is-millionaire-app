@@ -1,0 +1,15 @@
+<li data-model="player" data-id="<%= player.id%>" class="player">
+
+                <div class="ava"></div>
+                <div class="info" data-model="player" data-id="<%= player.id%>">
+                  <div class="name"><%= player.name %></div>
+
+                <div class='position'> Kết quả</div>
+<% if(player.first_quiz_result != null)  { %>
+    <% if(player.first_quiz_result.correct) { %>
+          <div class="status green">Trả lời đúng ở giây thứ: <%- player.first_quiz_result.time %></div>
+    <% } else { %>
+          <div class="status red">Trả lời sai ở giây thứ: <%- player.first_quiz_result.time %></div>
+    <% } } %>
+                </div>
+</li>

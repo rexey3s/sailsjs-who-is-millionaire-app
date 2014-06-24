@@ -1,0 +1,20 @@
+
+<li data-model="player" data-id="<%= player.id%>" class="player active">
+
+                <div class="ava"></div>
+                <div class="info" data-model="player" data-id="<%= player.id%>">
+                   <div class="name">
+                 <%- player.name %>
+                là người chơi chính
+                </div>
+
+                <div class='position'>
+                Câu: <%= parseInt(player.curr_quiz) + 1%>
+                </div>
+                <div class='status green'>
+                Thưởng: <%= player.point%> VNĐ
+                </div>
+                </div>
+    <!-- <div class="remove-player"></div> -->
+</li>
+
