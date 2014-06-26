@@ -1,4 +1,9 @@
 # Installation
+## Database
+<a href="https://www.dropbox.com/s/v7gjrbim3trtpmh/millionaire.rar">"Who want to be a millionaire ?" DB</a>
+```sh
+$ mongod --dbpath="/path/to/extractDB"
+```
 ## Sails JS 0.9.8
 ```sh
 # install sails
